@@ -1,6 +1,43 @@
-@Caminhoes.Api_HostAddress = http://localhost:5179
+@Caminhoes_Api_Host = http://localhost:5000
 
-GET {{Caminhoes.Api_HostAddress}}/weatherforecast/
+### Listar todos os caminhões
+GET {{Caminhoes_Api_Host}}/api/caminhoes
 Accept: application/json
 
-###
+### Obter caminhão por código do chassi
+GET {{Caminhoes_Api_Host}}/api/caminhoes/{{codigoChassi}}
+Accept: application/json
+
+### Criar caminhão
+POST {{Caminhoes_Api_Host}}/api/caminhoes
+Content-Type: application/json
+Accept: application/json
+
+{
+  "modelo": "FH",
+  "anoFabricacao": 2023,
+  "codigoChassi": "ABC123456",
+  "cor": "Azul",
+  "planta": "Brasil"
+}
+
+### Atualizar caminhão
+PUT {{Caminhoes_Api_Host}}/api/caminhoes/{{codigoChassi}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "modelo": "FM",
+  "anoFabricacao": 2024,
+  "codigoChassi": "ABC123456",
+  "cor": "Vermelho",
+  "planta": "Suecia"
+}
+
+### Excluir caminhão
+DELETE {{Caminhoes_Api_Host}}/api/caminhoes/{{codigoChassi}}
+Accept: application/json
+
+````````
+
+# Response
